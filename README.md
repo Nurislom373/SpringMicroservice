@@ -55,7 +55,7 @@ Bugungi kunda ishlatiladigan uchta asosiy cloud platforma turlari (IaaS, PaaS, S
 paydo bo'lmoqda. Ushbu yangi platforma turlarga Functions as a Service (FaaS) va Container as a Service (CaaS) kiradi.
 FaaS Serverless yani servicesiz kod bloklarni sifatida cloud platformalarni yaratish imkoni beradi.
 
-![img](static/images/img.png)
+![img](etc/images/img.png)
 
 ## A Microservice Architecture Characteristics
 
