@@ -1,0 +1,19 @@
+spring:
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        instance-id: custom-transaction-service
+        service-name: ${spring.application.name}
+        healthCheckPath: ${management.server.servlet.context-path}/actuator/health
+        healthCheckInterval: 15s
+  application:
+    name: TRANSACTION-SERVICE
+
+management:
+  server:
+    port: 4452
+
+server:
+  port: 8081
