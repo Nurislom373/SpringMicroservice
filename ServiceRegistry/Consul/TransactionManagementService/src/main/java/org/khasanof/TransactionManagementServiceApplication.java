@@ -4,6 +4,7 @@ import com.ecwid.consul.v1.ConsulClient;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.SneakyThrows;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,6 +12,7 @@ import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.consul.discovery.ConsulDiscoveryClient;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -41,6 +43,9 @@ public class TransactionManagementServiceApplication {
 @Component
 class TransactionManagementController implements CommandLineRunner {
 
+    @Value("classpath:application.yml")
+    private Resource resource;
+
     private static final String SERVICE_ID = "TRANSACTION-SERVICE";
     private static final String TRAN_SERVICE = "http://" + SERVICE_ID;
     private static final String FAKE_TRANS_URI = TRAN_SERVICE.concat("/api/trans/3");
@@ -67,9 +72,11 @@ class TransactionManagementController implements CommandLineRunner {
         System.out.println("instances = " + objectMapper.writerWithDefaultPrettyPrinter()
                 .writeValueAsString(instances));
 
+        byte[] contentAsByteArray = resource.getContentAsByteArray();
         consulClient.setKVValue("test", "value!");
+        consulClient.setKVBinaryValue("config", contentAsByteArray);
 
-        simpleRequestExample();
+//        simpleRequestExample();
     }
 
     @SneakyThrows
