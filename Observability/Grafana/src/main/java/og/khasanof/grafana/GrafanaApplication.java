@@ -1,14 +1,25 @@
 package og.khasanof.grafana;
 
+import ch.qos.logback.classic.Logger;
+import ch.qos.logback.classic.LoggerContext;
+import com.github.loki4j.slf4j.marker.LabelMarker;
 import io.micrometer.common.KeyValue;
 import io.micrometer.common.KeyValues;
+import io.micrometer.core.annotation.Timed;
+import io.micrometer.core.aop.TimedAspect;
+import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.Meter;
+import io.micrometer.core.instrument.Tags;
 import io.micrometer.observation.Observation;
 import io.micrometer.observation.ObservationHandler;
 import io.micrometer.observation.ObservationRegistry;
 import io.micrometer.observation.ObservationTextPublisher;
 import io.micrometer.observation.annotation.Observed;
 import io.micrometer.observation.aop.ObservedAspect;
+import io.micrometer.prometheus.PrometheusConfig;
+import io.micrometer.prometheus.PrometheusMeterRegistry;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
@@ -42,15 +53,20 @@ public class GrafanaApplication {
 @Configuration(proxyBeanMethods = false)
 class GrafanaConfiguration {
 
-    @Bean
-    public ObservationHandler<Observation.Context> observationTextPublisher() {
-        return new ObservationTextPublisher(log::info);
-    }
+//    @Bean
+//    public ObservationHandler<Observation.Context> observationTextPublisher() {
+//        return new ObservationTextPublisher(log::info);
+//    }
 
     // To have the @Observed support we need to register this aspect
     @Bean
     ObservedAspect observedAspect(ObservationRegistry observationRegistry) {
         return new ObservedAspect(observationRegistry);
+    }
+
+    @Bean
+    TimedAspect timedAspect(PrometheusMeterRegistry prometheusMeterRegistry) {
+        return new TimedAspect(prometheusMeterRegistry);
     }
 
     // if an ObservationRegistry is configured
@@ -65,12 +81,11 @@ class GrafanaConfiguration {
 }
 
 @Slf4j
-@Component
+//@Component
 class MyObservationHandler implements ObservationHandler<Observation.Context> {
 
     @Override
     public void onStart(Observation.Context context) {
-        context.put("my.key", "jeck!!!");
         log.info("Before running the observation for context [{}], userType [{}]", context.getName(), getUserTypeFromContext(context));
     }
 
@@ -128,8 +143,21 @@ class CustomServerRequestObservationConvention implements ServerRequestObservati
 @RestController
 class LoggerController {
 
+
+    private final PrometheusMeterRegistry registry;
+    private final Counter counter;
+
+    LoggerController(PrometheusMeterRegistry registry) {
+        this.registry = registry;
+        this.counter = registry.newCounter(new Meter.Id("hello_counter_promo", Tags.of("count", "12"), null, null, Meter.Type.COUNTER));
+    }
+
     @RequestMapping(value = "/hello/people")
     public ResponseEntity<String> logger() {
+        counter.increment();
+        LabelMarker labelMarker = LabelMarker.of("people", () -> String.valueOf(counter.count()));
+        log.info(labelMarker, "Successfully hello people!");
+        System.out.println("counter.count() = " + counter.count());
         return new ResponseEntity<>("Hello People!", HttpStatus.OK);
     }
 
