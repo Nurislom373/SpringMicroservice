@@ -1,12 +1,17 @@
-package og.khasanof.grafana;
+package og.khasanof.grafana.handler;
 
 import io.micrometer.core.instrument.Tag;
 import io.micrometer.core.instrument.Timer;
 import io.micrometer.observation.Observation;
 import io.micrometer.prometheus.PrometheusMeterRegistry;
+import og.khasanof.grafana.AbstractObservationHandler;
+import og.khasanof.grafana.enumeration.ObserveType;
+import og.khasanof.grafana.utils.MeterSuffixes;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+
+import static og.khasanof.grafana.utils.BaseUtils.concat;
 
 /**
  * @author Nurislom
@@ -16,6 +21,7 @@ import java.util.List;
 @Component
 public class TimerMeterObservationHandler extends AbstractObservationHandler {
 
+    private static final String METER_NAME_SUFFIX = MeterSuffixes.TIMER;
     private final PrometheusMeterRegistry meterRegistry;
 
     public TimerMeterObservationHandler(PrometheusMeterRegistry meterRegistry) {
@@ -30,14 +36,18 @@ public class TimerMeterObservationHandler extends AbstractObservationHandler {
 
     @Override
     public void onStop(Observation.Context context) {
-        List<Tag> tags = createTags(context);
-        tags.add(Tag.of("error", getErrorValue(context)));
         Timer.Sample sample = context.getRequired(Timer.Sample.class);
-        sample.stop(Timer.builder(context.getName()).tags(tags).register(this.meterRegistry));
+        timerRegistry(context, sample, getTags(context));
+    }
+
+    private void timerRegistry(Observation.Context context, Timer.Sample sample, List<Tag> tags) {
+        sample.stop(Timer.builder(concat(context.getName(), METER_NAME_SUFFIX))
+                .tags(tags).register(this.meterRegistry));
     }
 
     @Override
-    public boolean supportsContext(Observation.Context context) {
-        return true;
+    public ObserveType observeType() {
+        return ObserveType.TIMER;
     }
+
 }

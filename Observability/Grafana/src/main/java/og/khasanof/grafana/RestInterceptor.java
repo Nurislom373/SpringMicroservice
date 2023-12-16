@@ -6,6 +6,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -30,6 +32,7 @@ public class RestInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        RequestAttributes requestAttributes = RequestContextHolder.currentRequestAttributes();
         if (!contextMap.containsKey(request.getRequestURI())) {
             contextMap.put(request.getRequestURI(), createContext(request.getRequestURI()));
         }
@@ -47,9 +50,7 @@ public class RestInterceptor implements HandlerInterceptor {
     }
 
     private Observation.Context createContext(String name) {
-        Observation.Context context = new Observation.Context();
-        context.setName(name.replaceFirst("/", "").replaceAll("/", "_"));
-        return context;
+
     }
 
 }

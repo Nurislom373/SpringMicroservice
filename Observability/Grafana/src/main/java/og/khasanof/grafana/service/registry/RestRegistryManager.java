@@ -1,16 +1,16 @@
-package og.khasanof.grafana.registry;
+package og.khasanof.grafana.service.registry;
 
-import og.khasanof.grafana.resource.Resource;
+import og.khasanof.grafana.models.resource.Resource;
 import org.springframework.http.HttpMethod;
 
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * @author Nurislom
  * @see og.khasanof.grafana
  * @since 12/14/2023 6:20 PM
  */
-
 public interface RestRegistryManager {
 
     void add(Resource resource);
@@ -21,8 +21,9 @@ public interface RestRegistryManager {
 
     Optional<Resource> find(String uri, HttpMethod method);
 
-    void contains(String name);
+    boolean contains(String name);
 
-    void contains(String uri, HttpMethod method);
+    boolean contains(String uri, HttpMethod method);
 
+    Set<Resource> getAll();
 }
