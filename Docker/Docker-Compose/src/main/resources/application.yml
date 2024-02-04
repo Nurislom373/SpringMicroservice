@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/docker_compose_db
+    username: postgres
+    password: 2004
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
