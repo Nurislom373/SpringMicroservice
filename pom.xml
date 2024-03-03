@@ -12,6 +12,7 @@
     <modules>
         <module>ServiceRegistry</module>
         <module>Observability</module>
+        <module>EagleEye</module>
     </modules>
 
     <properties>
