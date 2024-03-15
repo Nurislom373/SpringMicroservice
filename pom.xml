@@ -13,6 +13,7 @@
         <module>ServiceRegistry</module>
         <module>Observability</module>
         <module>EagleEye</module>
+        <module>CentralizedConfiguration</module>
     </modules>
 
     <properties>

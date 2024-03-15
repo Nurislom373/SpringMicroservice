@@ -13,6 +13,9 @@
         <option value="$PROJECT_DIR$/Docker/Docker-Compose/pom.xml" />
         <option value="$PROJECT_DIR$/EagleEye/pom.xml" />
         <option value="$PROJECT_DIR$/EagleEye/LicensingService/pom.xml" />
+        <option value="$PROJECT_DIR$/CentralizedConfiguration/pom.xml" />
+        <option value="$PROJECT_DIR$/CentralizedConfiguration/CentralizedServer/pom.xml" />
+        <option value="$PROJECT_DIR$/CentralizedConfiguration/CentralizedClient/pom.xml" />
       </list>
     </option>
   </component>
