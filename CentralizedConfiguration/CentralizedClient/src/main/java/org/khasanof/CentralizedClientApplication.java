@@ -20,7 +20,7 @@ public class CentralizedClientApplication {
 @RestController
 class MessageRestController {
 
-    @Value("${message:Hello default}")
+    @Value("${config.message:Hello default}")
     private String message;
 
     /**
