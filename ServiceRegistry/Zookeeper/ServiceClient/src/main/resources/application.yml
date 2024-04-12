@@ -1,0 +1,15 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: ServiceClient
+  cloud:
+    zookeeper:
+      discovery:
+        connectString: localhost:2181
+        enabled: true
+
+  logging:
+    level:
+      org.apache.zookeeper.ClientCnxn: WARN

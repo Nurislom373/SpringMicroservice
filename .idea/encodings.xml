@@ -26,6 +26,10 @@
     <file url="file://$PROJECT_DIR$/ServiceRegistry/Eureka/WebAccountService/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ServiceRegistry/Eureka/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ServiceRegistry/Eureka/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ServiceRegistry/Zookeeper/ServiceClient/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ServiceRegistry/Zookeeper/ServiceProvider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ServiceRegistry/Zookeeper/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ServiceRegistry/Zookeeper/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ServiceRegistry/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ServiceRegistry/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
