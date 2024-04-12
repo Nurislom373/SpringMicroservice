@@ -18,6 +18,7 @@
         <option value="$PROJECT_DIR$/CentralizedConfiguration/CentralizedClient/pom.xml" />
         <option value="$PROJECT_DIR$/ServiceRegistry/Zookeeper/ServiceProvider/pom.xml" />
         <option value="$PROJECT_DIR$/ServiceRegistry/Zookeeper/ServiceClient/pom.xml" />
+        <option value="$PROJECT_DIR$/ServiceRegistry/Zookeeper/DiscoveryClient/pom.xml" />
       </list>
     </option>
   </component>

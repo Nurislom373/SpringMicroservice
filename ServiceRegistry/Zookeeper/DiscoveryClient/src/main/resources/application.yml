@@ -1,0 +1,16 @@
+server:
+  port: 7000
+
+spring:
+  application:
+    name: DiscoveryClient
+  cloud:
+    zookeeper:
+      discovery:
+        connectString: localhost:2181
+        enabled: true
+
+logging:
+  level:
+    org.apache.zookeeper.ClientCnxn: WARN
+    root: debug
