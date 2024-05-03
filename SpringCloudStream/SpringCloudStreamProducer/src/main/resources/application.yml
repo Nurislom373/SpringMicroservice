@@ -6,16 +6,14 @@ spring:
   application:
     name: SpringCloudStreamProducer
   cloud:
+#    function:
+#      definition: eventSupplier;randomMessage
     stream:
       bindings:
         eventSupplier-out-0:
           destination: person-command
         randomMessage-out-0:
           destination: random-message
-        sink1-in-0:
-          destination: random-message
-      function:
-        definition: eventSupplier;randomMessage;sink1
       kafka:
         binder:
           brokers: localhost:9092

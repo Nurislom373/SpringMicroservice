@@ -24,4 +24,14 @@ public class SpringCloudStreamConsumerApplication {
     public Consumer<PersonEvent> process() {
         return pe -> log.info("Person event: {}", pe);
     }
+
+    @Bean
+    public Consumer<String> sink1() {
+        return message -> {
+           log.info("******************");
+           log.info("At Sink1");
+           log.info("******************");
+           log.info("Received message: {}", message);
+        };
+    }
 }

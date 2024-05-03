@@ -18,6 +18,8 @@ spring:
       ddl-auto: update
     show-sql: true
   cloud:
+    function:
+      definition: process;sink
     stream:
       bindings:
         process-in-0:
@@ -26,6 +28,10 @@ spring:
             maxAttempts: 1
         process-out-0:
           destination: person-event
+        sink-in-0:
+          destination: sink-consume
+        sink-out-0:
+          destination: random-message
       kafka:
         binder:
           brokers: localhost:9092

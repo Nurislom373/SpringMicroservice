@@ -10,9 +10,13 @@ spring:
       bindings:
         process-in-0:
           destination: person-event
+        sink1-in-0:
+          destination: random-message
       kafka:
         binder:
           brokers: localhost:9092
           auto-create-topics: true
+    function:
+      definition: process;sink1
 server:
   port: 8086

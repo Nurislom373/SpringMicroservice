@@ -37,4 +37,12 @@ public class SpringCloudStreamProcessorApplication {
             return processor.save(personEvent);
         };
     }
+
+    @Bean
+    public Function<String, String> sink() {
+        return s -> {
+            log.info("Received event: {}", s);
+            return s;
+        };
+    }
 }
