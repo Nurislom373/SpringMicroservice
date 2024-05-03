@@ -1,0 +1,18 @@
+#logging:
+#  level:
+#    ROOT: DEBUG
+
+spring:
+  application:
+    name: SpringCloudStreamConsumer
+  cloud:
+    stream:
+      bindings:
+        process-in-0:
+          destination: person-event
+      kafka:
+        binder:
+          brokers: localhost:9092
+          auto-create-topics: true
+server:
+  port: 8086

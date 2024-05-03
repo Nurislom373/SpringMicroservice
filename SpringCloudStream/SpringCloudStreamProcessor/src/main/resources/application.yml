@@ -1,0 +1,40 @@
+#logging:
+#  level:
+#    ROOT: DEBUG
+
+spring:
+  application:
+    name: SpringCloudStreamProcessor
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:h2:file:./target/h2db/db/processor;DB_CLOSE_DELAY=-1
+    username: processor
+    password:
+    hikari:
+      poolName: Hikari
+      auto-commit: false
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  cloud:
+    stream:
+      bindings:
+        process-in-0:
+          destination: person-command
+          consumer:
+            maxAttempts: 1
+        process-out-0:
+          destination: person-event
+      kafka:
+        binder:
+          brokers: localhost:9092
+          auto-create-topics: true
+          transaction:
+            transaction-id-prefix: person-
+            producer:
+              configuration:
+                retries: 1
+                acks: all
+server:
+  port: 8087

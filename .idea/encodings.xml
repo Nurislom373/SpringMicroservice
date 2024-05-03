@@ -33,6 +33,17 @@
     <file url="file://$PROJECT_DIR$/ServiceRegistry/Zookeeper/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ServiceRegistry/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ServiceRegistry/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringCloudStream/SpringCloudStreamConsumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringCloudStream/SpringCloudStreamProcessor/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringCloudStream/SpringCloudStreamProducer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringCloudStream/SpringCloudStreamRoot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringCloudStream/SpringCloudStreamRoot/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringCloudStream/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringCloudStream/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringCloudStreamModule/SpringCloudStreamCore/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringCloudStreamModule/SpringCloudStreamCore/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringCloudStreamModule/SpringCloudStreamProcessor/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringCloudStreamModule/SpringCloudStreamProducer/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>
