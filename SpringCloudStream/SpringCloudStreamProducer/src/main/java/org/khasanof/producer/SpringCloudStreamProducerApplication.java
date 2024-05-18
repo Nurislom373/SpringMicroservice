@@ -54,8 +54,8 @@ public class SpringCloudStreamProducerApplication {
             boolean offer = unbounded.offer(personEvent);
             System.out.println("offer = " + offer);
 
-            for (int i = 0; i < 1000; i++) {
-                streamBridge.send(BINDING_NAME, UUID.randomUUID().toString());
+            for (int i = 1; i <= 10; i++) {
+                streamBridge.send(BINDING_NAME, String.valueOf(i));
             }
         };
     }

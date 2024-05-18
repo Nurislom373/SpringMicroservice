@@ -13,7 +13,7 @@ spring:
         eventSupplier-out-0:
           destination: person-command
         randomMessage-out-0:
-          destination: random-message
+          destination: random-message-0
       kafka:
         binder:
           brokers: localhost:9092

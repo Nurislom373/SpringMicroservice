@@ -5,6 +5,10 @@ import org.khasanof.PersonEvent;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.kafka.support.Acknowledgment;
+import org.springframework.kafka.support.KafkaHeaders;
+import org.springframework.messaging.Message;
+import org.springframework.messaging.MessageHeaders;
 
 import java.util.function.Consumer;
 
@@ -17,7 +21,6 @@ public class SpringCloudStreamConsumerApplication {
     }
 
     /**
-     *
      * @return
      */
     @Bean
@@ -26,12 +29,20 @@ public class SpringCloudStreamConsumerApplication {
     }
 
     @Bean
-    public Consumer<String> sink1() {
+    public Consumer<Message<String>> sink1() {
         return message -> {
-           log.info("******************");
-           log.info("At Sink1");
-           log.info("******************");
-           log.info("Received message: {}", message);
+            MessageHeaders headers = message.getHeaders();
+            System.out.println("headers = " + headers);
+            Acknowledgment acknowledgment = message.getHeaders().get(KafkaHeaders.ACKNOWLEDGMENT, Acknowledgment.class);
+            System.out.println("acknowledgment = " + acknowledgment);
+            if (acknowledgment != null) {
+                System.out.println("Acknowledgment provided");
+                acknowledgment.acknowledge();
+            }
+            log.info("******************");
+            log.info("At Sink1");
+            log.info("******************");
+            log.info("Received message: {}", message.getPayload());
         };
     }
 }
