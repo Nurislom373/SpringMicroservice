@@ -12,6 +12,8 @@
     <file url="file://$PROJECT_DIR$/EagleEye/LicensingService/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/EagleEye/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/EagleEye/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Hystrix/Hystrix-Core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Hystrix/Hystrix-Core/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Observability/Grafana/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Observability/MicrometerObservation/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Observability/MicrometerObservation/src/main/resources" charset="UTF-8" />
