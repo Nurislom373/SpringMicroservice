@@ -25,10 +25,12 @@
         <option value="$PROJECT_DIR$/SpringCloudStream/SpringCloudStreamProcessor/pom.xml" />
         <option value="$PROJECT_DIR$/SpringCloudStream/SpringCloudStreamProducer/pom.xml" />
         <option value="$PROJECT_DIR$/Hystrix/pom.xml" />
+        <option value="$PROJECT_DIR$/Hystrix/Spring-Hystrix/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/Hystrix/Spring-Hystrix/pom.xml" />
         <option value="$PROJECT_DIR$/Hystrix/pom.xml" />
         <option value="$PROJECT_DIR$/SpringCloudStreamModule/SpringCloudStreamCore/pom.xml" />
       </set>

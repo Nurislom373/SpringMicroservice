@@ -7,6 +7,9 @@ import com.netflix.hystrix.HystrixThreadPoolProperties;
 import com.netflix.hystrix.exception.HystrixRuntimeException;
 import org.junit.jupiter.api.Test;
 
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -23,6 +26,25 @@ public class HystrixCommandTest {
     @Test
     public void givenInputBobAndDefaultSettings_whenCommandExecuted_thenReturnHelloBob() {
         assertThat(new CommandHelloWorld("Bob").execute()).isEqualTo("Hello Bob!");
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void synchronousExecutionTestShouldSuccess() {
+        CommandHelloWorld commandHelloWorld = new CommandHelloWorld("Jeck");
+        assertThat(commandHelloWorld.execute()).isEqualTo("Hello Jeck!");
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void asynchronousExecutionTestShouldSuccess() throws ExecutionException, InterruptedException {
+        CommandHelloWorld commandHelloWorld = new CommandHelloWorld("Jeck");
+        Future<String> future = commandHelloWorld.queue();
+        assertThat(future.get()).isEqualTo("Hello Jeck!");
     }
 
     /**
