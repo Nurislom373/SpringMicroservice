@@ -14,6 +14,8 @@ spring:
           destination: person-command
         randomMessage-out-0:
           destination: random-message-0
+        process-out-0:
+          destination: person-event
       kafka:
         binder:
           brokers: localhost:9092

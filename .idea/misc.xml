@@ -26,6 +26,9 @@
         <option value="$PROJECT_DIR$/SpringCloudStream/SpringCloudStreamProducer/pom.xml" />
         <option value="$PROJECT_DIR$/Hystrix/pom.xml" />
         <option value="$PROJECT_DIR$/Hystrix/Spring-Hystrix/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringCloudStream/AutoResetOffset/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringCloudStream/AutoResetOffset/SpringAroProducer/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringCloudStream/AutoResetOffset/SpringAroConsumer/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

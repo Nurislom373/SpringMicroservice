@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.UUID;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Supplier;
 
 @Slf4j
@@ -26,6 +27,8 @@ public class SpringCloudStreamProducerApplication {
     private final BlockingQueue<PersonEvent> unbounded = new LinkedBlockingQueue<>();
 
     private final StreamBridge streamBridge;
+
+    private final AtomicInteger atomicInteger = new AtomicInteger();
 
     public SpringCloudStreamProducerApplication(StreamBridge streamBridge) {
         this.streamBridge = streamBridge;
@@ -45,6 +48,15 @@ public class SpringCloudStreamProducerApplication {
         return ResponseEntity.ok("Successfully");
     }
 
+    @RequestMapping(value = "/api/v2/generate", method = RequestMethod.GET)
+    public ResponseEntity<String> generateV2() {
+        for (int i = 0; i < 10; i++) {
+            int incrementAndGet = atomicInteger.incrementAndGet();
+            streamBridge.send("process-out-0", String.valueOf(incrementAndGet));
+        }
+        return ResponseEntity.ok("Successfully");
+    }
+
     @Bean
     CommandLineRunner commandLineRunner() {
         return args -> {
@@ -55,7 +67,8 @@ public class SpringCloudStreamProducerApplication {
             System.out.println("offer = " + offer);
 
             for (int i = 1; i <= 10; i++) {
-                streamBridge.send(BINDING_NAME, String.valueOf(i));
+                atomicInteger.incrementAndGet();
+                streamBridge.send("process-out-0", String.valueOf(i));
             }
         };
     }
