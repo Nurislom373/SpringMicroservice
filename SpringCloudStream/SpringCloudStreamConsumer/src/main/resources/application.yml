@@ -1,0 +1,26 @@
+#logging:
+#  level:
+#    ROOT: DEBUG
+
+spring:
+  application:
+    name: SpringCloudStreamConsumer
+  cloud:
+    stream:
+      bindings:
+        process-in-0:
+          destination: person-event
+        sink1-in-0:
+          destination: random-message-0
+      kafka:
+        binder:
+          brokers: localhost:9092
+          auto-create-topics: true
+          configuration:
+            auto:
+              offset:
+                reset: earliest
+    function:
+      definition: process;sink1
+server:
+  port: 8086

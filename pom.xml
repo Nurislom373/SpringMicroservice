@@ -14,6 +14,8 @@
         <module>Observability</module>
         <module>EagleEye</module>
         <module>CentralizedConfiguration</module>
+        <module>SpringCloudStream</module>
+        <module>Hystrix/Hystrix-Core</module>
     </modules>
 
     <properties>

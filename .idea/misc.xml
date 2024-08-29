@@ -19,10 +19,27 @@
         <option value="$PROJECT_DIR$/ServiceRegistry/Zookeeper/ServiceProvider/pom.xml" />
         <option value="$PROJECT_DIR$/ServiceRegistry/Zookeeper/ServiceClient/pom.xml" />
         <option value="$PROJECT_DIR$/ServiceRegistry/Zookeeper/DiscoveryClient/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringCloudStreamModule/SpringCloudStreamCore/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringCloudStreamModule/SpringCloudStreamConsumer/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringCloudStream/SpringCloudStreamConsumer/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringCloudStream/SpringCloudStreamProcessor/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringCloudStream/SpringCloudStreamProducer/pom.xml" />
+        <option value="$PROJECT_DIR$/Hystrix/pom.xml" />
+        <option value="$PROJECT_DIR$/Hystrix/Spring-Hystrix/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringCloudStream/AutoResetOffset/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringCloudStream/AutoResetOffset/SpringAroProducer/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringCloudStream/AutoResetOffset/SpringAroConsumer/pom.xml" />
       </list>
     </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/Hystrix/Spring-Hystrix/pom.xml" />
+        <option value="$PROJECT_DIR$/Hystrix/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringCloudStreamModule/SpringCloudStreamCore/pom.xml" />
+      </set>
+    </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="17" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="SuppressKotlinCodeStyleNotification">
