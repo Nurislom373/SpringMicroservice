@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: SpringBootAdmin
+
+server:
+  port: 9001
