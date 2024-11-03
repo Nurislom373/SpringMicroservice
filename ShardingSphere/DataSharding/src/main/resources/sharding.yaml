@@ -1,0 +1,32 @@
+dataSources:
+  master:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: org.postgresql.Driver
+    jdbcUrl: jdbc:mysql://localhost:3306/reviews_db
+    username: my_user
+    password: my_password
+
+mode:
+  type: Standalone
+  repository:
+    type: JDBC
+
+rules:
+  - !SHARDING
+    tables:
+      reviews:
+        actualDataNodes: master.reviews_$->{0..1}
+        tableStrategy:
+          standard:
+            shardingColumn: course_id
+            shardingAlgorithmName: inline
+    shardingAlgorithms:
+      inline:
+        type: INLINE
+        props:
+          algorithm-expression: reviews_$->{course_id % 2}
+          allow-range-query-with-inline-sharding: true
+props:
+  check-table-metadata-enabled: false
+  proxy-hint-enabled: true
+  sql-show: true

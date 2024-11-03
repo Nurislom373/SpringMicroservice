@@ -15,6 +15,7 @@
     <file url="file://$PROJECT_DIR$/Hystrix/Hystrix-Core/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Hystrix/Hystrix-Core/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Hystrix/Spring-Hystrix/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Multitenancy/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Observability/Grafana/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Observability/MicrometerObservation/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Observability/MicrometerObservation/src/main/resources" charset="UTF-8" />
@@ -36,6 +37,7 @@
     <file url="file://$PROJECT_DIR$/ServiceRegistry/Zookeeper/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ServiceRegistry/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ServiceRegistry/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ShardingSphere/DataSharding/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/SpringCloudStream/AutoResetOffset/SpringAroConsumer/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/SpringCloudStream/AutoResetOffset/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/SpringCloudStream/AutoResetOffset/src/main/resources" charset="UTF-8" />
