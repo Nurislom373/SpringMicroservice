@@ -38,6 +38,7 @@
     <file url="file://$PROJECT_DIR$/ServiceRegistry/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ServiceRegistry/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ShardingSphere/DataSharding/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ShardingSphere/ReadWrite/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/SpringCloudStream/AutoResetOffset/SpringAroConsumer/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/SpringCloudStream/AutoResetOffset/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/SpringCloudStream/AutoResetOffset/src/main/resources" charset="UTF-8" />

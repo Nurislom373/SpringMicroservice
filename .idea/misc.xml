@@ -31,6 +31,7 @@
         <option value="$PROJECT_DIR$/SpringCloudStream/AutoResetOffset/SpringAroConsumer/pom.xml" />
         <option value="$PROJECT_DIR$/Multitenancy/pom.xml" />
         <option value="$PROJECT_DIR$/ShardingSphere/DataSharding/pom.xml" />
+        <option value="$PROJECT_DIR$/ShardingSphere/ReadWrite/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

@@ -1,0 +1,75 @@
+dataSources:
+  master:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: org.postgresql.Driver
+    jdbcUrl: jdbc:mysql://localhost:3306/reviews_db
+    username: my_user
+    password: my_password
+    connectionTimeoutMilliseconds: 30000
+    idleTimeoutMilliseconds: 60000
+    maxLifetimeMilliseconds: 1800000
+    maxPoolSize: 65
+    minPoolSize: 1
+
+  slave0:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: org.postgresql.Driver
+    jdbcUrl: jdbc:mysql://localhost:43306/reviews_db
+    username: my_user
+    password: my_password
+    connectionTimeoutMilliseconds: 30000
+    idleTimeoutMilliseconds: 60000
+    maxLifetimeMilliseconds: 1800000
+    maxPoolSize: 65
+    minPoolSize: 1
+
+  slave1:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: org.postgresql.Driver
+    jdbcUrl: jdbc:mysql://localhost:43307/reviews_db
+    username: my_user
+    password: my_password
+    connectionTimeoutMilliseconds: 30000
+    idleTimeoutMilliseconds: 60000
+    maxLifetimeMilliseconds: 1800000
+    maxPoolSize: 65
+    minPoolSize: 1
+
+mode:
+  type: Standalone
+  repository:
+    type: JDBC
+
+rules:
+  - !SHARDING
+    tables:
+      reviews:
+        actualDataNodes: readwrite_ds.reviews_$->{0..1}
+        tableStrategy:
+          standard:
+            shardingColumn: course_id
+            shardingAlgorithmName: inline
+    shardingAlgorithms:
+      inline:
+        type: INLINE
+        props:
+          algorithm-expression: reviews_$->{course_id % 2}
+          allow-range-query-with-inline-sharding: true
+
+  - !READWRITE_SPLITTING
+    dataSources:
+      readwrite_ds:
+        staticStrategy:
+          writeDataSourceName: master
+          readDataSourceNames:
+            - slave0
+            - slave1
+        loadBalancerName: readwrite-load-balancer
+    loadBalancers:
+      readwrite-load-balancer:
+        type: ROUND_ROBIN
+
+props:
+  check-table-metadata-enabled: false
+  proxy-hint-enabled: true
+  sql-show: true
